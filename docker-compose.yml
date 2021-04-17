@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  database:
+    container_name: postgres_transactions
+    image: postgres:11.5
+    environment:
+      POSTGRES_USER: transactions
+      POSTGRES_PASSWORD: transactions123
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./scripts/postgres/1-data.sql:/docker-entrypoint-initdb.d/1-data.sql
