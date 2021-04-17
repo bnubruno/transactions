@@ -10,3 +10,17 @@ services:
       - "5434:5432"
     volumes:
       - ./scripts/postgres/1-data.sql:/docker-entrypoint-initdb.d/1-data.sql
+  swagger-editor:
+    image: swaggerapi/swagger-editor
+    container_name: transaction-swagger-editor
+    ports:
+      - "8081:8080"
+    environment:
+      BASE_URL: http://localhost:8080/v2/api-docs
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: transaction-swagger-ui
+    ports:
+      - "8082:8080"
+    environment:
+      URL: http://localhost:8080/v2/api-docs
