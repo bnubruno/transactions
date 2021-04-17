@@ -1,25 +1,29 @@
 package com.challenge.transactions.entity;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static java.util.Arrays.stream;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.Optional;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Data
-@Entity
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-public class OperationType {
+public enum OperationType {
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	private Long id;
+	A_VISTA( 1, "COMPRA A VISTA" ),
+	PARCELADA( 2, "COMPRA PARCELADA" ),
+	SAQUE( 3, "SAQUE" ),
+	PAGAMENTO( 4, "PAGAMENTO" );
 
+	private Integer id;
 	private String description;
+
+	public static Optional<OperationType> getById(Long id) {
+		return stream( values() )
+				.filter( value -> value.getId().equals( id ) )
+				.findFirst();
+
+	}
 
 }

@@ -1,4 +1,4 @@
-package com.challenge.transactions.dto.response;
+package com.challenge.transactions.dto.request;
 
 import java.math.BigDecimal;
 

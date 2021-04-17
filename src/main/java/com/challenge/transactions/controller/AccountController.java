@@ -27,8 +27,8 @@ public class AccountController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void save(@RequestBody AccountRequestDTO request) {
-		accountService.save( accountMapper.toEntity( request ) );
+	public AccountResponseDTO save(@RequestBody AccountRequestDTO request) {
+		return accountMapper.toDTO( accountService.save( accountMapper.toEntity( request ) ) );
 	}
 
 	@GetMapping("/accounts/{id}")
