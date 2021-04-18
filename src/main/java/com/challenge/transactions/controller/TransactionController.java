@@ -2,6 +2,8 @@ package com.challenge.transactions.controller;
 
 import static java.util.Optional.ofNullable;
 
+import javax.validation.Valid;
+
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -32,11 +34,11 @@ public class TransactionController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public TransactionResponseDTO save(@RequestBody TransactionRequestDTO dto) {
+	public TransactionResponseDTO save(@Valid @RequestBody TransactionRequestDTO dto) {
 		Account account = findAccount( dto );
 		OperationType operationType = findOperationType( dto );
 		Transaction entity = transactionService.save( transactionMapper.toEntity( dto, account, operationType ) );
-		return transactionMapper.toDTO(entity);
+		return transactionMapper.toDTO( entity );
 	}
 
 	private OperationType findOperationType(TransactionRequestDTO dto) {

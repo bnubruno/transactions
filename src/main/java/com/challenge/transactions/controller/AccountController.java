@@ -1,5 +1,7 @@
 package com.challenge.transactions.controller;
 
+import javax.validation.Valid;
+
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,7 @@ public class AccountController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public AccountResponseDTO save(@RequestBody AccountRequestDTO request) {
+	public AccountResponseDTO save(@Valid @RequestBody AccountRequestDTO request) {
 		return accountMapper.toDTO( accountService.save( accountMapper.toEntity( request ) ) );
 	}
 

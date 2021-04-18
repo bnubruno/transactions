@@ -1,7 +1,5 @@
 package com.challenge.transactions.service;
 
-import javax.validation.Valid;
-
 import lombok.AllArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -15,7 +13,7 @@ public class TransactionService {
 
 	private TransactionRepository transactionRepository;
 
-	public Transaction save(@Valid Transaction transaction) {
+	public Transaction save(Transaction transaction) {
 		transaction.setAmount( transaction.getOperationType().getAmountMapper().map( transaction.getAmount() ) );
 		return transactionRepository.save( transaction );
 	}
