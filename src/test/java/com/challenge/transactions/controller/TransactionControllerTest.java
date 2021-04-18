@@ -30,8 +30,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @TestPropertySource(locations = "classpath:application-integrationtest.properties")
 public class TransactionControllerTest {
 
-	public static final long DOCUMENT_NUMBER = 12345678900L;
+	private static final long DOCUMENT_NUMBER = 12345678900L;
 	private static final String URL = "/transactions";
+
 	@Autowired
 	private MockMvc mvc;
 
