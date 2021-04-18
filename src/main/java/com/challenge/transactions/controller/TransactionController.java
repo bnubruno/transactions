@@ -28,6 +28,9 @@ import com.challenge.transactions.service.TransactionService;
 @RequestMapping("/transactions")
 public class TransactionController {
 
+	private static final String OPERATION_TYPE_NOT_FOUND_MESSAGE = "Operation type not found";
+	private static final String ACCOUNT_NOT_FOUND_MESSAGE = "Account not found";
+
 	private AccountService accountService;
 	private TransactionMapper transactionMapper;
 	private TransactionService transactionService;
@@ -44,13 +47,13 @@ public class TransactionController {
 	private OperationType findOperationType(TransactionRequestDTO dto) {
 		return ofNullable( dto.getOperationTypeId() )
 				.flatMap( OperationType::getById )
-				.orElseThrow( () -> new BadRequestException( "Operation type not found" ) );
+				.orElseThrow( () -> new BadRequestException( OPERATION_TYPE_NOT_FOUND_MESSAGE ) );
 	}
 
 	private Account findAccount(TransactionRequestDTO dto) {
 		return ofNullable( dto.getAccountId() )
 				.flatMap( accountService::findById )
-				.orElseThrow( () -> new BadRequestException( "Account not found" ) );
+				.orElseThrow( () -> new BadRequestException( ACCOUNT_NOT_FOUND_MESSAGE ) );
 	}
 
 }
