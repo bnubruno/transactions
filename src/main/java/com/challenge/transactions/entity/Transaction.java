@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -15,7 +16,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.NotFound;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.sun.istack.NotNull;
 
@@ -24,6 +26,7 @@ import com.sun.istack.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Transaction {
 
 	@Id
@@ -40,7 +43,7 @@ public class Transaction {
 	@NotNull
 	private BigDecimal amount;
 
-	@NotFound
+	@CreatedDate
 	private LocalDateTime eventDate;
 
 }
