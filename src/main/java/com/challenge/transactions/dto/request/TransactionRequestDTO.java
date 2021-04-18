@@ -14,7 +14,7 @@ import lombok.Setter;
 public class TransactionRequestDTO {
 
 	private Long accountId;
-	private Long operationTypeId;
+	private Integer operationTypeId;
 	private BigDecimal amount;
 
 }

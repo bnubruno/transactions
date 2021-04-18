@@ -16,6 +16,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.hibernate.annotations.NotFound;
+
+import com.sun.istack.NotNull;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -26,14 +30,17 @@ public class Transaction {
 	@GeneratedValue(strategy = IDENTITY)
 	private Long id;
 
+	@NotNull
 	@ManyToOne
 	private Account account;
 
-	@Enumerated(EnumType.ORDINAL)
+	@NotNull
 	private OperationType operationType;
 
+	@NotNull
 	private BigDecimal amount;
 
+	@NotFound
 	private LocalDateTime eventDate;
 
 }

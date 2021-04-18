@@ -33,14 +33,22 @@ public class TransactionController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public TransactionResponseDTO save(@RequestBody TransactionRequestDTO dto) {
-		Account account = ofNullable( dto.getAccountId() )
-				.flatMap( accountService::findById )
-				.orElseThrow( () -> new BadRequestException( "Account not found" ) );
-		OperationType operationType = ofNullable( dto.getOperationTypeId() )
-				.flatMap( OperationType::getById )
-				.orElseThrow( () -> new BadRequestException( "Operation type not found" ) );
+		Account account = findAccount( dto );
+		OperationType operationType = findOperationType( dto );
 		Transaction entity = transactionService.save( transactionMapper.toEntity( dto, account, operationType ) );
 		return transactionMapper.toDTO(entity);
+	}
+
+	private OperationType findOperationType(TransactionRequestDTO dto) {
+		return ofNullable( dto.getOperationTypeId() )
+				.flatMap( OperationType::getById )
+				.orElseThrow( () -> new BadRequestException( "Operation type not found" ) );
+	}
+
+	private Account findAccount(TransactionRequestDTO dto) {
+		return ofNullable( dto.getAccountId() )
+				.flatMap( accountService::findById )
+				.orElseThrow( () -> new BadRequestException( "Account not found" ) );
 	}
 
 }

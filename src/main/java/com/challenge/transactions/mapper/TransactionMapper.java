@@ -14,14 +14,14 @@ public interface TransactionMapper {
 
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "account", source = "account")
-	@Mapping(target = "amount", source = "dto.amount")
 	@Mapping(target = "eventDate", ignore = true)
 	@Mapping(target = "operationType", source = "operationType")
+	@Mapping(target = "amount", source = "dto.amount")
 	Transaction toEntity(TransactionRequestDTO dto, Account account, OperationType operationType);
 
-	@Mapping(target = "amount", source = "amount")
 	@Mapping(target = "accountId", source = "account.id")
 	@Mapping(target = "operationTypeId", source = "operationType.id")
+	@Mapping(target = "amount", source = "amount")
 	@Mapping(target = "eventDate", source = "eventDate")
 	TransactionResponseDTO toDTO(Transaction entity);
 }
