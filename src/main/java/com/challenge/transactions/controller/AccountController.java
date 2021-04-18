@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,13 +20,13 @@ import com.challenge.transactions.service.AccountService;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/accounts")
+
 public class AccountController {
 
 	private AccountMapper accountMapper;
 	private AccountService accountService;
 
-	@PostMapping
+	@PostMapping("/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
 	public AccountResponseDTO save(@Valid @RequestBody AccountRequestDTO request) {
 		return accountMapper.toDTO( accountService.save( accountMapper.toEntity( request ) ) );

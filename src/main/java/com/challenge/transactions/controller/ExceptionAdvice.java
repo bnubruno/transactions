@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.challenge.transactions.dto.response.RequestErrorDTO;
 import com.challenge.transactions.exception.BadRequestException;
+import com.challenge.transactions.exception.NotFoundException;
 
 @RestController
 @ControllerAdvice
@@ -32,7 +33,13 @@ public class ExceptionAdvice {
 
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(BadRequestException.class)
-	public RequestErrorDTO accountException(BadRequestException ex) {
+	public RequestErrorDTO badRequestException(BadRequestException ex) {
+		return buildRequestErrorDTO( List.of( ex.getMessage() ) );
+	}
+
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	@ExceptionHandler(NotFoundException.class)
+	public RequestErrorDTO notFoundException(NotFoundException ex) {
 		return buildRequestErrorDTO( List.of( ex.getMessage() ) );
 	}
 
