@@ -33,7 +33,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class AccountControllerTest {
 
 	private static final String URL = "/accounts";
-	private static final String DOCUMENT_NUMBER_STRING = "12345678900";
 	private static final Long DOCUMENT_NUMBER = 12345678900L;
 
 	@Autowired
@@ -48,7 +47,7 @@ public class AccountControllerTest {
 	@Test
 	@Transactional
 	public void whenCreateAccount() throws Exception {
-		AccountRequestDTO accountDTO = AccountRequestDTO.builder().documentNumber( DOCUMENT_NUMBER_STRING ).build();
+		AccountRequestDTO accountDTO = AccountRequestDTO.builder().documentNumber( DOCUMENT_NUMBER ).build();
 
 		mvc.perform( post( URL )
 				.contentType( MediaType.APPLICATION_JSON )

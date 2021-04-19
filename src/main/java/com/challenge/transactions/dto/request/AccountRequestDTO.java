@@ -19,6 +19,6 @@ public class AccountRequestDTO {
 
 	@NotNull(message = "Document number must be not null")
 	@JsonProperty("document_number")
-	private String documentNumber;
+	private Long documentNumber;
 
 }

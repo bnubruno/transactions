@@ -47,7 +47,7 @@ public class AccountMapperTest {
 
 	private AccountRequestDTO buildAccountRequestDTO() {
 		return AccountRequestDTO.builder()
-				.documentNumber( DOCUMENT_NUMBER.toString() )
+				.documentNumber( DOCUMENT_NUMBER )
 				.build();
 	}
 
