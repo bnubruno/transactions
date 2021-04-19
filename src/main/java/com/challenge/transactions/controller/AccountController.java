@@ -22,8 +22,6 @@ import com.challenge.transactions.service.AccountService;
 @AllArgsConstructor
 public class AccountController {
 
-	private static final String ACCOUNT_NOT_FOUND_MESSAGE = "Account not found";
-
 	private AccountMapper accountMapper;
 	private AccountService accountService;
 
@@ -37,7 +35,7 @@ public class AccountController {
 	public AccountResponseDTO findById(@PathVariable("id") Long id) {
 		return accountService.findById( id )
 				.map( accountMapper::toDTO )
-				.orElseThrow( () -> new NotFoundException( ACCOUNT_NOT_FOUND_MESSAGE ) );
+				.orElseThrow( () -> new NotFoundException( "Account not found" ) );
 	}
 
 }
