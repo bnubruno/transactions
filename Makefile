@@ -1,16 +1,16 @@
 # create the container with postgres
-start:
+up:
 	docker-compose -f docker-compose.yml up
 
 # destroy the container with postgres
 down:
 	docker-compose -f docker-compose.yml down
 
-start-dev:
+up-dev:
 	docker-compose -f docker-compose.development.yml up
 
 jar:
 	./gradlew build
 
-docker-build:
+image:
 	docker build . -t app

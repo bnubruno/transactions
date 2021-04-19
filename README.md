@@ -17,8 +17,8 @@
 ### Makefile
 
     > make jar -- to build and generates .jar
-    > make docker-build -- to generate an app image
-    > make start -- to start enviroment dependencies
+    > make image -- to generate an app image
+    > make up -- to start enviroment dependencies
 
 ### Gradle & Docker
 
@@ -28,4 +28,4 @@
 
 ### Gradle & Docker Development
 
-    > make start-dev -- to start enviroment dependencies without app
+    > make up-dev -- to start enviroment dependencies without app
