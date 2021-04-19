@@ -17,13 +17,3 @@ services:
       - "8082:8080"
     environment:
       URL: http://localhost:8080/v2/api-docs
-  app:
-    build: .
-    image: app
-    expose:
-      - 8080
-    ports:
-      - 8080:8080
-      - 8000:8000
-    depends_on:
-      - database

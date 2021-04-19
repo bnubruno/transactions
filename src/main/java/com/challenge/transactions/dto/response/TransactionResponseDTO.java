@@ -1,6 +1,7 @@
 package com.challenge.transactions.dto.response;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,6 @@ public class TransactionResponseDTO {
 	private Long accountId;
 	private Long operationTypeId;
 	private BigDecimal amount;
-	private String eventDate;
+	private LocalDateTime eventDate;
 
 }

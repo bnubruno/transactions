@@ -8,6 +8,9 @@ import static org.hamcrest.Matchers.nullValue;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.exparity.hamcrest.date.LocalDateMatchers;
+import org.exparity.hamcrest.date.LocalDateTimeMatchers;
+import org.hamcrest.Matcher;
 import org.junit.jupiter.api.Test;
 
 import com.challenge.transactions.dto.request.TransactionRequestDTO;
@@ -47,7 +50,8 @@ public class TransactionMapperTest {
 
 		assertThat( result.getAmount(), comparesEqualTo( BigDecimal.TEN ) );
 		assertThat( result.getOperationTypeId(), equalTo( OPERATION_TYPE_ID ) );
-		assertThat( result.getEventDate(), equalTo( getEventDate() ) );
+		Matcher<LocalDateTime> localDateTimeMatcher = LocalDateTimeMatchers.sameDay( getEventDate() );
+		assertThat( result.getEventDate(), localDateTimeMatcher );
 	}
 
 	private Transaction buildTransaction() {
@@ -61,7 +65,7 @@ public class TransactionMapperTest {
 	}
 
 	private LocalDateTime getEventDate() {
-		return LocalDateTime.of( 2020, 1, 1, 10, 20 );
+		return LocalDateTime.of( 2020, 1, 1, 10, 20, 20 );
 	}
 
 	private TransactionRequestDTO buildTransactionRequestDTO() {

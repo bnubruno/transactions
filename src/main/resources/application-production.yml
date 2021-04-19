@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: transactions
+    password: transactions123
+    url: jdbc:postgresql://database:5432/transactions
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
