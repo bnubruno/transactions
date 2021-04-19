@@ -8,8 +8,6 @@ services:
       POSTGRES_PASSWORD: transactions123
     ports:
       - "5434:5432"
-    volumes:
-      - ./scripts/postgres/1-data.sql:/docker-entrypoint-initdb.d/1-data.sql
   swagger-ui:
     image: swaggerapi/swagger-ui
     container_name: transaction-swagger-ui
