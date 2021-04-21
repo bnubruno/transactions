@@ -38,7 +38,7 @@
 
 ### Endpoints
 
-## Accounts
+#### Accounts
 
 > POST /accounts
 
@@ -72,7 +72,7 @@ Response body:
 } 
 ```
 
-## Transactions
+#### Transactions
 
 > POST /transactions
 
