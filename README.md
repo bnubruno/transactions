@@ -29,9 +29,53 @@
 ### Gradle & Docker Development
 
     > make up-dev -- to start enviroment dependencies without app
-   
+
 ### Swagger
 
     http://localhost:8082
 
 ![endpoints](https://user-images.githubusercontent.com/10691038/115611835-f8694080-a2c0-11eb-8a12-4d4787775b85.png)
+
+### Endpoints
+
+> POST /accounts
+
+Request Body:
+
+```
+{
+  "document_number": 0
+}
+```
+
+Response Body:
+
+```
+201 CREATED
+
+{
+  "account_id": 0,
+  "document_number": 0
+}
+```
+
+> GET /accounts/:accountId
+
+Response Body:
+
+```
+{
+  "account_id": 0,
+  "document_number": 0
+} 
+```
+
+> POST /transactions Request Body:
+
+```
+{
+  "account_id": 0,
+  "amount": 0,
+  "operation_type_id": 0
+}
+```
