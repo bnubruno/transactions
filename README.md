@@ -30,6 +30,8 @@
 
     > make up-dev -- to start enviroment dependencies without app
    
-### Endpoints
+### Swagger
+
+    http://localhost:8082
 
 ![endpoints](https://user-images.githubusercontent.com/10691038/115611835-f8694080-a2c0-11eb-8a12-4d4787775b85.png)
