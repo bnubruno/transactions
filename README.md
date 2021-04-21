@@ -40,7 +40,7 @@
 
 > POST /accounts
 
-Request Body:
+Request body:
 
 ```
 {
@@ -48,7 +48,7 @@ Request Body:
 }
 ```
 
-Response Body:
+Response body:
 
 ```
 201 CREATED
@@ -61,7 +61,7 @@ Response Body:
 
 > GET /accounts/:accountId
 
-Response Body:
+Response body:
 
 ```
 {
@@ -70,7 +70,9 @@ Response Body:
 } 
 ```
 
-> POST /transactions Request Body:
+> POST /transactions
+
+Request body:
 
 ```
 {
