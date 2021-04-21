@@ -38,6 +38,8 @@
 
 ### Endpoints
 
+## Accounts
+
 > POST /accounts
 
 Request body:
@@ -69,6 +71,8 @@ Response body:
   "document_number": 0
 } 
 ```
+
+## Transactions
 
 > POST /transactions
 
