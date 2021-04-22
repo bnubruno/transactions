@@ -3,3 +3,7 @@ spring:
     username: transactions
     password: transactions123
     url: jdbc:postgresql://localhost:5434/transactions
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
